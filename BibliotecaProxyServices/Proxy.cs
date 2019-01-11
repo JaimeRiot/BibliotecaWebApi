@@ -11,7 +11,7 @@ namespace BibliotecaProxyServices
 {
     public class Proxy : IService
     {
-        string BaseAddress = "http://10.15.0.57:57694/";
+        string BaseAddress = "https://biblioteca-a1.firebaseio.com";
 
         #region Peticiones POST AND GET
         // api/products/createproduct
@@ -76,7 +76,7 @@ namespace BibliotecaProxyServices
         public async Task<Biblioteca> CreateNewBookAsync(Biblioteca newProduct)
         {
             return await SendPost<Biblioteca, Biblioteca>
-                ("/api/products/createproduct", newProduct);
+                ("/api/Biblioteca", newProduct);
         }
         public Biblioteca CreateNewBook(Biblioteca newProduct)
         {
