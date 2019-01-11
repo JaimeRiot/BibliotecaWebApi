@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Biblioteca.Mobile"
+             x:Class="Biblioteca.Mobile.MainPage"
+             xmlns:vm="clr-namespace:Biblio.ViewModel;assembly=Biblio.ViewModel">
+    <ContentPage.BindingContext>
+        <vm:Biblioteca></vm:Biblioteca>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Margin="10">Categoria:</Label>
+            <Entry WidthRequest="50" Text="{Binding LibroName}" />
+            <Entry WidthRequest="50" Text="{Binding GeneroName}"/>
+            <Button Text="Agregar" Margin="10" 
+                        Command="{Binding AddProductsCommand}" />
+        </StackLayout>
+        <!-- Place new controls here -->
+        <ListView ItemsSource="{Binding Path=Biblio}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Libro}"/>
+                                <Label Grid.Column="1" Text="{Binding Categoria}" />
+                            </Grid>
+
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
